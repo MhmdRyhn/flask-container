@@ -6,7 +6,9 @@ RUN apt-get update -y \
   libapache2-mod-wsgi-py3 \
   build-essential \
   python3-dev \
-  vim
+  vim \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip && pip install virtualenv
 WORKDIR /var/www/flask-container
